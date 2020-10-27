@@ -1,0 +1,70 @@
+{
+  "name": "Opportunity copy",
+  "description" : "Copies all opportunity for a given user/fiscal year/status and recreates it in the current FY",
+  "repository":"https://github.com/arieunier/cometdtokafka",
+  "keywords": ["python", "kafka"], 
+  "scripts": {
+    },
+  "oppycopy": {
+    "notification" : {
+      "quantity": 1,
+      "size": "standard-1x"
+    }
+  },
+  "addons": [
+    {"plan": "timber-logging:free"}
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env":
+    {
+      "KAFKA_URL": {
+        "Description" : "KAFKA Url to connect to - will be filled if you deploy Heroku Kafka Addon",
+        "value" : "KAFKA Url to connect to - will be filled if you deploy Heroku Kafka Addon",
+        "required" : false
+      },
+      "KAFKA_CLIENT_CERT": {
+        "Description" : "Kafka Client certificate - will be filled if you deploy Heroku Kafka Addon",
+        "value" : "Kafka Client certificate - will be filled if you deploy Heroku Kafka Addon",
+        "required" : false
+      },
+      "KAFKA_CLIENT_CERT_KEY": {
+        "Description" : "Kafla Client Key - will be filled if you deploy Heroku Kafka Addon ",
+        "value" : "Kafla Client Key - will be filled if you deploy Heroku Kafka Addon ",
+        "required" : false
+      },
+      "KAFKA_TRUSTED_CERT": {
+        "Description" : "Kafka CA - will be filled if you deploy Heroku Kafka Addon",
+        "value" :  "Kafka CA - will be filled if you deploy Heroku Kafka Addon",
+        "required" : false
+      },
+      "KAFKA_PREFIX": {
+        "Description" : "Kafka topic prefix - will be filled if you deploy Heroku Kafka Addon",
+        "value" : "Kafka topic prefix - will be filled if you deploy Heroku Kafka Addon",
+        "required" : false
+      },      
+      "CLOUDAMQP_URL": {
+        "Description" : "CLOUDAMQP_URL to be filled by cloudamqp addon later",
+        "value" : "CLOUDAMQP_URL to be filled by cloudamqp addon later",
+        "required" : false
+      }, 
+      "QUEUING_SYSTEM": {
+        "Description" : "Which system to use for the queuing system: values are KAFKA/CLOUDAMQP. Will default to CLOUDAMQP",
+        "value" : "CLOUDAMQP",
+        "required" : true
+      },
+      "LOG_LEVEL": {
+        "Description" : "Log Level",
+        "value" : "INFO",
+        "required" : true
+      },
+      "SUBSCRIBE_CHANNEL": {
+        "Description" : "name of the channel the service must connect to when starting",
+        "value" : "fill me",
+        "required" : true
+      }
+    }
+}
