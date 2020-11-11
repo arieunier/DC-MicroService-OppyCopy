@@ -41,9 +41,11 @@ def transactional_insert(sqlRequest,rows, tableName, externalidfield):
     tmpArrayExternalIds = []
     i = 0
     bucketidx = 0
+    j = 0
     for row in rows:
         i += 1
-        if (i % MAXROWS == 0):
+        j += 1
+        if ( j ==  MAXROWS):
             tmpArrayInsert.append(row)        
             tmpArrayExternalIds.append(row[externalidfield])
 
@@ -54,7 +56,9 @@ def transactional_insert(sqlRequest,rows, tableName, externalidfield):
             tmpArrayExternalIds = []
             bucketidx +=1
             LOGGER.info("One bucket created")
+            j = 0
         else:
+            j += 1
             tmpArrayInsert.append(row)
             tmpArrayExternalIds.append(row[externalidfield])
 
