@@ -61,7 +61,10 @@ def transactional_insert(sqlRequest,rows, tableName, externalidfield):
             j += 1
             tmpArrayInsert.append(row)
             tmpArrayExternalIds.append(row[externalidfield])
-
+    #check if id=0
+    if (bucketidx == 0 and i != 0): # means that we have less than max rows
+        batchesInsert.append(tmpArrayInsert)
+        batchesExternalIds.append(tmpArrayExternalIds)
         
     LOGGER.info("{} buckets created for {} entries in total".format(bucketidx, i))
 
