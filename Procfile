@@ -1,1 +1,1 @@
-oppycopy: export PYTHONPATH=.:./appsrc:./appsrc/libs/ ; python appsrc/oppycopy.py
+oppycopy: export PYTHONPATH=$PYTHONPATH:.:./appsrc:./appsrc/libs/ ; python appsrc/oppycopy.py

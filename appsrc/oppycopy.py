@@ -1,5 +1,5 @@
 import ujson, datetime, json, uuid, time
-from libs import queuer, logs, rabbitmq_utils, config, rediscache, sfapi, postgres, utils, aws
+from dclibs import queuer, logs, rabbitmq_utils, config, rediscache, sfapi, postgres, utils, aws
 from sqlalchemy.sql import text 
 
 LOGGER = logs.LOGGER
